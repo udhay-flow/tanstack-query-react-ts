@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query"
-import { getApi } from "../service"
+// import { useQuery } from "@tanstack/react-query"
+// import { getApi } from "../service"
 
 type UserProp = {
     id: number;
@@ -23,10 +23,20 @@ type GeoProp = {
 
 const BasicReactQryHook = () => {
 
-    const { data, isLoading, isError } = useQuery<UserProp>({
-        queryKey: ["user"],
-        queryFn: () => getApi("https://jsonplaceholder.typicode.com/users/1")
-    })
+    const isLoading = false
+    const isError = false
+    const data: UserProp = {
+        id: 1,
+        name: "Udhay",
+        email: "udhay@gmail.com",
+        address: {
+            street: "",
+            suite: "",
+            city: "",
+            zipcode: "",
+            geo: {lat: "", lng: ""}
+        }
+    }
 
     if (isLoading) return <h1>Loading...</h1>
 
