@@ -1,3 +1,4 @@
+import BasicReactQryHook from './components/BasicReactQryHook'
 import ReactQryPrvdr from './providers/ReactQryPrvdr'
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
   return (
     <>
       <ReactQryPrvdr>
-        <p>Hello</p>
+        <BasicReactQryHook />
       </ReactQryPrvdr>
     </>
   )
