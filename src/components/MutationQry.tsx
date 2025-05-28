@@ -1,8 +1,8 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { postApi } from '../service'
 import LasttnPosts from './LasttnPosts'
-import type { PostProps } from './PgntdQry'
+// import type { PostProps } from './PgntdQry'
 
 const cmnStyleObj = { padding: "12px", borderRadius: 6 }
 
@@ -13,17 +13,16 @@ const MutationQry = () => {
     const [title, settitle] = useState('')
 
     // hook
-    const queryClient = useQueryClient()
+    // const queryClient = useQueryClient()
     const { isPending, mutateAsync } = useMutation({
         mutationFn: (payload: Record<string, string>) => postApi('https://jsonplaceholder.typicode.com/pots', payload),
         onSuccess: () => {
             alert('Updated successfully')
             setbody("")
             settitle("")
-            queryClient.setQueryData(['last_10_posts'], (cached: PostProps) => [...[{ body, title }], ...cached])
+            // add optimistic here...
         },
         onError: () => {
-            // queryClient.setQueryData(['last_10_posts'], (cached: PostProps) => cached.slice(1))
             alert('An error occured!!!')
         }
     })
