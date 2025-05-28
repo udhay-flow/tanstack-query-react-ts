@@ -1,4 +1,5 @@
-import BasicReactQryHook from './components/BasicReactQryHook'
+// import BasicReactQryHook from './components/BasicReactQryHook'
+import PgntdQry from './components/PgntdQry'
 import ReactQryPrvdr from './providers/ReactQryPrvdr'
 
 function App() {
@@ -6,8 +7,9 @@ function App() {
   return (
     <>
       <ReactQryPrvdr>
-        <BasicReactQryHook />
         {/* <BasicReactQryHook /> */}
+        {/* <BasicReactQryHook /> */}
+        <PgntdQry />
       </ReactQryPrvdr>
     </>
   )
