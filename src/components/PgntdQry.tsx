@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getApi } from "../service"
 import { useState } from "react";
 
-type PostProps = IndivPostProp[]
+export type PostProps = IndivPostProp[]
 
 type IndivPostProp = {
     userId: number;
