@@ -5,13 +5,13 @@ import type { PostProps } from "./PgntdQry"
 const LasttnPosts = () => {
 
     // query
-    const { data, isLoading, isError } = useQuery<PostProps>({
+    const { data, isFetching, isError } = useQuery<PostProps>({
         queryKey: ["last_10_posts"],
         queryFn: () => getApi("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=10"),
         staleTime: Infinity
     })
 
-    if (isLoading) return <h1>{'Loading...'}</h1>
+    if (isFetching) return <h1>{'Loading...'}</h1>
 
     if (isError || !data) return <h1>An Error Occured...</h1>
 
