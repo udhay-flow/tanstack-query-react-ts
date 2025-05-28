@@ -25,7 +25,8 @@ const BasicReactQryHook = () => {
 
     const { data, isLoading, isError } = useQuery<UserProp>({
         queryKey: ["user"],
-        queryFn: () => getApi("https://jsonplaceholder.typicode.com/users/1")
+        queryFn: () => getApi("https://jsonplaceholder.typicode.com/users/1"),
+        staleTime: 1000 * 60 * 5 // cache time
     })
 
     if (isLoading) return <h1>Loading...</h1>

@@ -7,6 +7,7 @@ function App() {
     <>
       <ReactQryPrvdr>
         <BasicReactQryHook />
+        {/* <BasicReactQryHook /> */}
       </ReactQryPrvdr>
     </>
   )
