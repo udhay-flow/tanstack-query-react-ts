@@ -1,32 +1,17 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-
-const QUERY_KEY_HERE = "react_query_as_state_management";
+// const QUERY_KEY_HERE = "react_query_as_state_management";
 
 const useRctQryAsStateMangmnt = () => {
   // query
-  const queryClient = useQueryClient();
-  const { data: countState } = useQuery({
-    queryKey: [QUERY_KEY_HERE],
-    queryFn: () => ({
-      count: 0,
-    }),
-    staleTime: Infinity
-  });
+  const countState = {count: 0}
 
   
   // methods
   const increentMthd = () => {
-    const count = countState?.count ?? 0
-    queryClient.setQueryData([QUERY_KEY_HERE], () => ({
-      count: count + 1,
-    }));
+    // define increment logics using queryclient's setQueryData method
   };
 
   const dcremntMthd = () => {
-    const count = countState?.count ?? 0
-    queryClient.setQueryData([QUERY_KEY_HERE], () => ({
-      count: count - 1,
-    }));
+    // define decrement logics using queryclient's setQueryData method
   };
 
   return { countState, increentMthd, dcremntMthd };
