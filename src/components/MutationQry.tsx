@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { postApi } from '../service'
 import LasttnPosts from './LasttnPosts'
@@ -12,14 +12,13 @@ const MutationQry = () => {
     const [title, settitle] = useState('')
 
     // hook
-    const queryClient = useQueryClient()
     const { isPending, mutateAsync } = useMutation({
         mutationFn: (payload: Record<string, string>) => postApi('https://jsonplaceholder.typicode.com/posts', payload),
         onSuccess: () => {
             alert('Updated successfully')
             setbody("")
             settitle("")
-            queryClient.invalidateQueries({queryKey: ["last_10_posts"]})
+            // invalidate the last_10_posts query here...
         },
         onError: () => alert('An error occured!!!')
     })
