@@ -15,7 +15,7 @@ const MutationQry = () => {
     // hook
     const queryClient = useQueryClient()
     const { isPending, mutateAsync } = useMutation({
-        mutationFn: (payload: Record<string, string>) => postApi('https://jsonplaceholder.typicode.com/pots', payload),
+        mutationFn: (payload: Record<string, string>) => postApi('https://jsonplaceholder.typicode.com/posts', payload),
         onSuccess: () => {
             alert('Updated successfully')
             setbody("")
